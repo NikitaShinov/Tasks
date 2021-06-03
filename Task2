@@ -1,0 +1,12 @@
+import Foundation
+
+print("Введите x, y и z:")
+var x = readLine()
+var y = readLine()
+var z = readLine()
+let x1 = Int(x!)!
+let y1 = Int(y!)!
+let z1 = Int(z!)!
+let arrayOfNumers = [x1,y1,z1]
+let maximum = arrayOfNumers.max()
+print (maximum!)
