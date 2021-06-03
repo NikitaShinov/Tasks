@@ -1,0 +1,9 @@
+import Foundation
+
+print("Введите x и y:")
+var x = readLine()
+var y = readLine()
+var x1 = Int(x!)!
+var y1 = Int(y!)!
+print ("x = \(y1)")
+print ("y = \(x1)")
