@@ -1,0 +1,12 @@
+import Foundation
+
+print("Введите число:")
+var x = readLine()
+let x1 = Int(x!)!
+print("Выберете, во что переводить:")
+var type = readLine()
+if type == "байты" {
+    print("\(x1)KB =",x1*1024,"bytes")
+} else if type == "килобайты" {
+    print("\(x1)B =",x1/1024,"kilobytes")
+}
