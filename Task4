@@ -1,0 +1,10 @@
+import Foundation
+
+print("Введите число:")
+var x = readLine()
+let x1 = Double(x!)!
+print("Введите кол-во знаков после запятой:")
+var y = readLine()
+var y1 = Int(y!)!
+var finalNumber = String(format: "%.\(y1)f", x1)
+print(finalNumber)
