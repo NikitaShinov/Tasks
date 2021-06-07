@@ -1,0 +1,14 @@
+import Foundation
+print ("Введите число:")
+let x = readLine()
+let x1 = Int(x!)
+if x1! >= 65 && x1! <= 90 {
+    let c = String(UnicodeScalar(x1!)!)
+    print (c,"==> Буква из алфавита")
+} else if x1! >= 97 && x1! <= 122 {
+    let c = String(UnicodeScalar(x1!)!)
+    print (c,"==> Буква из алфавита")
+} else {
+    let c = String(UnicodeScalar(x1!)!)
+    print (c,"==> Символ не из алфавита")
+}
