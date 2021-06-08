@@ -1,0 +1,13 @@
+import Foundation
+//Перевести число, введенное пользователем, в байты или килобайты в зависимости от его выбора (также пользователь вводит).
+print("Укажите размер числа - в байтах (байт) или килобайтах (килобайт):")
+let valueSize: String = (readLine()!)
+print("Введите число:")
+let value = Double(readLine()!)!
+let bytesValue = Int(round(value*1024))
+let kilobytesValue = Int(round(value/1024))
+if valueSize == "байт" {
+    print("Размер в килобайтах = \(kilobytesValue)")
+} else if valueSize == "килобайт" {
+    print("Размер в байтах = \(bytesValue)")
+}
