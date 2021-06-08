@@ -1,0 +1,18 @@
+import Foundation
+print ("Введите число:")
+let x = readLine()
+let x1 = Int(x!)
+//Вводится целое число, обозначающее код символа по таблице ASCII. Определить, это код английской буквы или какой-либо иной символ.
+let charNumberASCIIMoreThanA = (x1! >= 65)
+let charNumberASCIILessThanZ = (x1! <= 90)
+let charNumberASCIIMoreThana = (x1! >= 97)
+let charNumberASCIILessThanz = (x1! <= 122)
+let charBetweenAandZ = charNumberASCIIMoreThanA && charNumberASCIILessThanZ
+let charBetweenaandz = charNumberASCIIMoreThana && charNumberASCIILessThanz
+if charBetweenAandZ || charBetweenaandz {
+    let c = String(UnicodeScalar(x1!)!)
+    print (c,"==> Буква из алфавита")
+} else {
+    let c = String(UnicodeScalar(x1!)!)
+    print (c,"==> Символ не из алфавита")
+}
