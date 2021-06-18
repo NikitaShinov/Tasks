@@ -1,0 +1,39 @@
+import Foundation
+
+ ///Создать константу с многострочным литералом, вывести его в консоль
+let someString: String = """
+Ukraine 2 - 3 the Netherlands
+Russia 0 - 3 Belgium
+Turkey 0 - 3 Italy
+"""
+
+///С помощью цикла (for, while) создать переменную, которая будет содержать 10 юникод символов U+2665
+var scalarValue = "\u{2665}"
+var numberOfScalarValues = scalarValue.count
+
+while numberOfScalarValues < 10 {
+    scalarValue += "\u{2665}"
+    numberOfScalarValues += 1
+}
+
+///Создать пустую строку, далее заполнить ее, и опять сделать пустой
+var someOtherString = ""
+if someOtherString.isEmpty {
+    print ("Not empty anymore")
+}
+
+///Произвести конкатенацию строк из (1) и (2) заданий
+let newString = scalarValue + "\n" + someString
+///Произвести интерполяцию строки "i ... swift", где вместо ... будет подставлено значение из (2) пункта
+var newInterpolation = "I \(scalarValue) Swift"
+
+///С помощью индексных операций (insert) в строку из (5) в конец добавить "so much", затем также используя индексные операции заменить в начале строки "i" на "we"
+newInterpolation.insert(contentsOf: " so much!", at:newInterpolation.endIndex)
+newInterpolation.remove(at: newInterpolation.startIndex)
+newInterpolation.insert(contentsOf: "We", at:newInterpolation.startIndex)
+
+print (scalarValue)
+print (someOtherString)
+print (someString)
+print (newString)
+print (newInterpolation)
