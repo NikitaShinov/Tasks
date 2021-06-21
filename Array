@@ -1,0 +1,41 @@
+import Foundation
+
+///Заполнить одномерный массив случайными положительными и отрицательными числами (использовать for или while). Размер массива - не менее 20 элементов. Далее практически во всех заданиях используем этот массив.
+var Array: [Int] = []
+for i in (-20...20){
+    Array.append(i)
+}
+print(Array)
+
+///Найти и вывести на экран наибольший элемент и порядковый номер этого элемента из (1)
+let maxValueOfArray: Int = Array.max()!
+print (maxValueOfArray)
+let maxValueOfArrayIndex = Array.firstIndex(of: maxValueOfArray)!
+print (maxValueOfArrayIndex)
+
+///Найти среднее арифметическое положительных элементов массива из (1)
+var totalSum: Double = 0
+for b in Array{
+    if b > 0 {
+        totalSum += Double(b)
+    }
+}
+let  totalNumberOfPositives = Double(Array.filter {$0 >= 1}.count)
+let average = totalSum/totalNumberOfPositives
+print (average)
+
+
+///В массиве найти максимальный отрицательный элемент. Вывести на экран его значение и позицию в массиве
+let minValueOfArray: Int = Array.min()!
+print (minValueOfArray)
+let minValueOfArrayIndex = Array.firstIndex(of: minValueOfArray)!
+print (minValueOfArrayIndex)
+
+
+///Вывести максимальный элемент с четным индексом и минимальный с нечетным индексом
+let arrayOfEvens = (Array.filter {$0 % 2 == 0})
+let maxOfArrayOfEvens: Int = arrayOfEvens.max()!
+let arrayOfOdds = (Array.filter {$0 % 2 == 1 || $0 % 2 == -1})
+let minOfArrayOfOdds: Int = arrayOfOdds.min()!
+print (maxOfArrayOfEvens)
+print (minOfArrayOfOdds)
