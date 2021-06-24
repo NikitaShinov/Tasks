@@ -1,0 +1,60 @@
+
+import Foundation
+
+var arrayOfTotalRandomNumbers: [Int] = []
+var arrayOfPositiveNumbers: [Int] = []
+var arrayOfNegativeNumbers: [Int] = []
+for _ in -5...5 {
+    let value = Int.random(in: -5...5)
+    if value > 0 {
+        arrayOfPositiveNumbers.append(value)
+        arrayOfTotalRandomNumbers.append(value)
+    } else if value < 0 {
+        arrayOfNegativeNumbers.append(value)
+        arrayOfTotalRandomNumbers.append(value)
+    }
+}
+print (arrayOfPositiveNumbers)
+print (arrayOfNegativeNumbers)
+print (arrayOfTotalRandomNumbers)
+
+/// метод пузырька
+func bubbleSort (arr: [Int]) -> [Int]{
+    var array = arr
+    for _ in 0..<array.count - 1 {
+        for j in 0..<array.count - 1 {
+            if (array[j] > array[j+1])
+            {
+                let temp = array[j]
+                array[j] = array[j+1]
+                array[j+1] = temp
+                
+            }
+        }
+    }
+    return array
+}
+
+
+
+print (bubbleSort(arr: arrayOfPositiveNumbers))
+
+///метод выбором
+var selectionSortedArray: [Int] = []
+print (arrayOfTotalRandomNumbers)
+for _ in 0..<arrayOfTotalRandomNumbers.count {
+    var smallestValue = arrayOfTotalRandomNumbers[0]
+    var smallestIndex = 0
+    for (index, number) in arrayOfTotalRandomNumbers.enumerated() {
+        if number < smallestValue {
+            smallestValue = number
+            smallestIndex = index
+        }
+    }
+    
+    selectionSortedArray.append(smallestValue)
+    arrayOfTotalRandomNumbers.remove(at: smallestIndex)
+}
+
+
+print (selectionSortedArray)
