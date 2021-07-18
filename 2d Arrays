@@ -1,0 +1,96 @@
+import UIKit
+
+var str = "Hello, playground"
+//1) Дан целочисленный двумерный массив X[1..5, 1..4]. Заменить в нем все элементы, меньше 5 числом 111.
+а) Создаем двумерный массив (матрицу), заполняем X[1..5, 1..4], выводим матрицу в консоль
+б) Бежим по всем элементам двумерного массива и делаем проверку и замену по заданию.
+var newArray = [[Int]]()
+
+func newArrayCreation (row: Int, column: Int) {
+    for x in 0..<row {
+        newArray.append([Int]())
+        for _ in 0..<column {
+            newArray[x].append(Int.random(in: 0...20))
+        }
+    }
+    for i in newArray {
+        print(i);("\n")
+    }
+}
+
+
+newArrayCreation(row: 5, column: 5)
+
+
+
+let searchValue = 5
+let desiredValue = 111
+func searchForValue () {
+    for row in 0..<newArray.count {
+        for column in 0..<newArray[row].count {
+            if  newArray[row][column] <= searchValue {
+                newArray[row][column] = desiredValue
+            }
+        }
+    }
+    print (newArray)
+}
+
+searchForValue()
+
+//2) Дан целочисленный массив В[1..4, 1..3]. Заменить все элементы двумерного массива квадратами чисел. То есть, если по индексу [2,2] стоит число 4, необходимо заменить это число на 4^2, то есть числом 16.
+Пункты выполнения как в первом
+func doubleValue () {
+    for row in 0..<newArray.count {
+        for column in 0..<newArray[row].count {
+                newArray[row][column] = newArray[row][column]*newArray[row][column]
+        }
+    }
+    print(newArray)
+}
+
+doubleValue()
+
+//3) Дан целочисленный массив В[1..5, 1..5]. Вычислить и вывести в консоль сумму элементов этого массива, расположенных выше левой диагонали.
+func valuesOverLeftDiagonal () {
+    var i = 1
+    for row in 0..<newArray.count {
+        for column in 0..<newArray[row].count - i {
+            print (newArray[row][column])
+        }
+        i = i + 1
+    }
+}
+valuesOverLeftDiagonal()
+
+//4) Создать матрицу (5х5), заполнить random числами от -20 до 20.
+а) Найти и вывести в консоль столбец с наибольшей суммой элементов.
+б) Найти и вывести в консоль строку с наименьшей суммой элементов.
+func sumOfRowsAndColumns () {
+    var temporaryArray = [Int]()
+    for row in 0..<newArray.count {
+        var sum1 = 0
+        for column in 0..<newArray[0].count {
+            sum1 = sum1 + newArray[row][column]
+            }
+        temporaryArray.append(sum1)
+        }
+    let highestSum = temporaryArray.max()
+    let highestSumIndex = temporaryArray.firstIndex(of: highestSum!)!
+    let highestRow = newArray[highestSumIndex]
+    print (highestRow)
+    var temporaryArray2 = [Int]()
+    for row in 0..<newArray.count {
+        var sum2 = 0
+        for column in 0..<newArray[0].count {
+            sum2 = sum2 + newArray[column][row]
+            }
+        temporaryArray2.append(sum2)
+        }
+    let lowestSum = temporaryArray2.min()
+    let lowestSumIndex = temporaryArray2.firstIndex(of: lowestSum!)!
+    for i in 0..<newArray.count {
+        print (newArray[i][lowestSumIndex])
+    }
+}
+sumOfRowsAndColumns()
